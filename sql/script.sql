@@ -17,8 +17,8 @@ CREATE TABLE sellers(
 
 CREATE TABLE receipts(
 	idreceipt INT PRIMARY KEY AUTO_INCREMENT,
-	date TIMESTAMP NOT NULL,
-	total DECIMAL(6,2),
+	date DATE NOT NULL,
+	total DECIMAL(10,2),
 	idseller INT NOT NULL,
 	idclient INT NOT NULL,
 	FOREIGN KEY (idseller) REFERENCES sellers(idseller),
