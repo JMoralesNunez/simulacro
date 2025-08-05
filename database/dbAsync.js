@@ -4,7 +4,7 @@ const dbAsync = mysql.createPool({
     host: 'localhost',
     port: 3307,
     user: 'root',
-    password: 'Jmn94089#',
+    password: 'password',
     database: 'dbventas'
 });
 

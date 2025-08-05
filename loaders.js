@@ -4,7 +4,7 @@ const fs = require('fs');
 const csv = require('csv-parser');
 
 
-async function cargarClientes() {
+export async function cargarClientes() {
     try {
         // await db.connect();
 
@@ -39,7 +39,7 @@ async function cargarClientes() {
         // await db.end();
     }
 }
-async function cargarProductos() {
+export async function cargarProductos() {
     try {
         // await db.connect();
 
@@ -72,7 +72,7 @@ async function cargarProductos() {
         // await db.end();
     }
 }
-async function cargarVendedores() {
+export async function cargarVendedores() {
     try {
         // await db.connect();
 
@@ -105,7 +105,7 @@ async function cargarVendedores() {
         // await db.end();
     }
 }
-async function cargarFacturas() {
+export async function cargarFacturas() {
     try {
         // await db.connect();
 
@@ -141,7 +141,7 @@ async function cargarFacturas() {
         // await db.end();
     }
 }
-async function cargarCompras() {
+export async function cargarCompras() {
     try {
         // await db.connect();
         const compras = [];
@@ -174,10 +174,3 @@ async function cargarCompras() {
     }
 }
 
-module.exports = {
-    cargarClientes,
-    cargarProductos,
-    cargarVendedores,
-    cargarFacturas,
-    cargarCompras
-};
