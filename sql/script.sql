@@ -1,0 +1,37 @@
+CREATE TABLE clients(
+	idclient INT PRIMARY KEY AUTO_INCREMENT,
+	phone VARCHAR(45) NOT NULL UNIQUE,
+	school VARCHAR(75) NOT NULL,
+	client_name VARCHAR(45) NOT NULL 
+);
+
+CREATE TABLE products(
+	idproduct INT PRIMARY KEY AUTO_INCREMENT,
+	product_name VARCHAR(75) NOT NULL UNIQUE
+);
+
+CREATE TABLE sellers(
+	idseller INT PRIMARY KEY AUTO_INCREMENT,
+	seller_name VARCHAR(75) NOT NULL UNIQUE
+);
+
+CREATE TABLE receipts(
+	idreceipt INT PRIMARY KEY AUTO_INCREMENT,
+	date TIMESTAMP NOT NULL,
+	total DECIMAL(6,2),
+	idseller INT NOT NULL,
+	idclient INT NOT NULL,
+	FOREIGN KEY (idseller) REFERENCES sellers(idseller),
+	FOREIGN KEY (idclient) REFERENCES clients(idclient)	
+);
+
+
+CREATE TABLE purchases_details(
+	id_purchase INT PRIMARY KEY AUTO_INCREMENT,
+	quantity INT NOT NULL,
+	idproduct INT NOT NULL,
+	idreceipt INT NOT NULL,
+	FOREIGN KEY (idproduct) REFERENCES products(idproduct),
+	FOREIGN KEY (idreceipt) REFERENCES receipts(idreceipt)
+);
+
