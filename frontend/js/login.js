@@ -13,7 +13,7 @@ async function login(e) {
         if (user) {
             localStorage.setItem("auth", "true")
             localStorage.setItem("userInfo", JSON.stringify({ id: user.id, name: user.name }))
-            window.location = '../home.html';
+            window.location = '../../index.html';
         } else {
             alert("Usuario incorrecto")
         }
