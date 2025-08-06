@@ -1,7 +1,7 @@
-import { USER_API } from "./APIurls";
+import { USER_API } from "./APIurls.js";
 
 
-export async function register(e) {
+async function register(e) {
     e.preventDefault();
     const name = document.getElementById("name").value
     const lastname = document.getElementById("lastname").value
@@ -18,28 +18,19 @@ export async function register(e) {
             if (exist) {
                 alert("Este usuario ya existe")
             } else {
-                if (rol == "user") {
                     const res = await fetch(USER_API, {
                         "method": "POST",
                         "headers": {
                             "Content-Type": "application/json"
                         },
                         "body": JSON.stringify({
-                            "name": name,
+                            "name": fullname,
                             "email": email,
-                            "password": password,
-                            "rol": rol,
-                            "skills": [],
-                            "experience": []
+                            "password": password
                         })
                     })
-                    const user = await res.json()
-                    localStorage.setItem("auth", "true")
-                    localStorage.setItem("userInfo", JSON.stringify({ id: user.id, name: user.name }))
-                    localStorage.setItem("userType", "user");
-                    closeRegister()
-                    loadPage()
-                }
+                    window.location = '../../frontend/login.html';
+                
             }
         } catch (error) {
             console.error("Error al registrar el usuario:", error);
@@ -47,3 +38,5 @@ export async function register(e) {
         }
     }
 }
+
+document.getElementById('registerbtn').addEventListener('click', register)
