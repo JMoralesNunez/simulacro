@@ -10,7 +10,7 @@ export async function register(e) {
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
 
-    if (name && email && password) {
+    if (name && lastname && email && password) {
         try {
             const resGet = await fetch(USER_API);
             const data = await resGet.json();
@@ -37,29 +37,6 @@ export async function register(e) {
                     localStorage.setItem("auth", "true")
                     localStorage.setItem("userInfo", JSON.stringify({ id: user.id, name: user.name }))
                     localStorage.setItem("userType", "user");
-                    closeRegister()
-                    loadPage()
-                } else if (rol == "company") {
-                    const res = await fetch(USER_API, {
-                        "method": "POST",
-                        "headers": {
-                            "Content-Type": "application/json"
-                        },
-                        "body": JSON.stringify({
-                            "name": name,
-                            "email": email,
-                            "password": password,
-                            "rol": rol,
-                            "logo": "",
-                            "field": "",
-                            "description": "",
-                            "jobOffers": []
-                        })
-                    })
-                    const user = await res.json()
-                    localStorage.setItem("auth", "true")
-                    localStorage.setItem("userInfo", JSON.stringify({ id: user.id, name: user.name }))
-                    localStorage.setItem("userType", "company");
                     closeRegister()
                     loadPage()
                 }
