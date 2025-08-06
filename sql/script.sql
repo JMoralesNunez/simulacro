@@ -35,3 +35,16 @@ CREATE TABLE purchases_details(
 	FOREIGN KEY (idreceipt) REFERENCES receipts(idreceipt)
 );
 
+CREATE TABLE users(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	name varchar(60) not null,
+	email varchar(60) not null unique,
+	password varchar(60) not null
+);
+
+
+DELETE from clients;
+DELETE from products;
+DELETE from sellers;
+DELETE from receipts;
+DELETE from purchases_details;
