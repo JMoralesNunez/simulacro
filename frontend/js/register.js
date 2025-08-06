@@ -1,13 +1,15 @@
 import { USER_API } from "./APIurls";
 
-USER_API
 
 export async function register(e) {
     e.preventDefault();
-    const name = document.getElementById("fullName").value
-    const email = document.getElementById("emailInput").value;
-    const password = document.getElementById("passwordInput").value;
-    const rol = document.getElementById("roleSelect").value;
+    const name = document.getElementById("name").value
+    const lastname = document.getElementById("lastname").value
+    const fullname = `${name} ${lastname}`
+
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
     if (name && email && password) {
         try {
             const resGet = await fetch(USER_API);
