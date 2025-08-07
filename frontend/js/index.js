@@ -1,4 +1,4 @@
-import { CLIENT_API } from "./APIurls"
+import { CLIENT_API } from "./APIurls.js"
 
 const userName = document.getElementById("userName")
 const userInfo = localStorage.getItem("userInfo")
@@ -14,14 +14,14 @@ async function loadClients() {
     const clients = await res.json();
     clients.forEach(client => {
         table.innerHTML += `<tr>
-                                <td>${client.id}</td>
-                                <td>${client.name}</td>
+                                <td>${client.idclient}</td>
+                                <td>${client.client_name}</td>
                                 <td>${client.phone}</td>
                                 <td>${client.school}</td>
                                 <td>
-                                    <button class="btn btn-sm btn-info">Detalles</button>
-                                    <button class="btn btn-sm btn-warning">Editar</button>
-                                    <button class="btn btn-sm btn-danger">Eliminar</button>
+                                    <button class="btn btn-sm btn-info" onclick="details(${client.idclient})">Detalles</button>
+                                    <button class="btn btn-sm btn-warning" onclick="edit(${client.idclient})">Editar</button>
+                                    <button class="btn btn-sm btn-danger" onclick="erase(${client.idclient})">Eliminar</button>
                                 </td>
                             </tr>`
     });
