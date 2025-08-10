@@ -8,7 +8,7 @@ const receiptRoutes = require('./routes/receiptRoutes.js');
 const purchaseRoutes = require('./routes/purchaseRoutes');
 const userRoutes = require('./routes/userRoutes.js');
 
-//const { cargarClientes } = require('./loaders.js');
+// const { cargarCompras } = require('./loaders.js');
 
 
 app.use(express.json());

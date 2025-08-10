@@ -22,7 +22,7 @@ class ClientController{
     getDetails(req, res) {
         const { id } = req.params;
         try {
-            db.query(`SELECT * FROM clients WHERE id_client = ?;`,
+            db.query(`SELECT * FROM clients WHERE idclient = ?;`,
                 [id], 
                 (err, response) => {
                     if (err) {

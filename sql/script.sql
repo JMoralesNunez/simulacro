@@ -42,9 +42,17 @@ CREATE TABLE users(
 	password varchar(60) not null
 );
 
+-- Query de facturas
+SELECT idreceipt, receipts.date, receipts.total, sellers.seller_name, clients.client_name from receipts 
+JOIN sellers on sellers.idseller = receipts.idseller
+JOIN clients on clients.idclient = receipts.idclient 
+
 
 DELETE from clients;
 DELETE from products;
 DELETE from sellers;
 DELETE from receipts;
 DELETE from purchases_details;
+
+
+
