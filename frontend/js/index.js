@@ -2,7 +2,7 @@ import { clientControl } from "./clientConfig/clientConfig.js"
 import { showTable } from "./DOM.js"
 import { clientModals, productModals, sellerModals, receiptModals } from "./modals.js"
 import { productControl } from "./productConfig/productConfig.js"
-import { loadReceipts } from "./receiptConfig/receiptConfig.js"
+import { receiptControl } from "./receiptConfig/receiptConfig.js"
 import { sellerControl } from "./sellerConfig/sellerConfig.js"
 
 const userName = document.getElementById("userName")
@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     clientControl.load()
     productControl.load()
     sellerControl.load()
-    loadReceipts()
+    receiptControl.load()
 })
 
 //DOM de tablas

@@ -1,8 +1,10 @@
 import { CLIENT_API, PRODUCT_API, SELLER_API, RECEIPT_API } from "./APIurls.js";
 import { getClientId, setClientId } from "./clientConfig/clientGlobal.js";
 import { getProductId, setProductId } from "./productConfig/productGlobal.js";
+import { receiptControl } from "./receiptConfig/receiptConfig.js";
 import { getReceiptId, setReceiptId } from "./receiptConfig/receiptGlobal.js";
 import { getSellerId, setSellerId } from "./sellerConfig/sellerGlobal.js";
+
 
 
 
@@ -117,6 +119,9 @@ export const receiptModals = {
         const total = document.getElementById("receiptTotal");
         const sellerid = document.getElementById("receiptSeller");
         const clientid = document.getElementById("receiptClient");
+
+        await receiptControl.loadSellerOptions();
+        await receiptControl.loadClientOptions();
         if (id) {
             //Edit mode
             try {
