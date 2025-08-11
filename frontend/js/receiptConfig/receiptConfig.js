@@ -1,9 +1,10 @@
 import { RECEIPT_API } from "../APIurls.js"
 import { receiptModals } from "../modals.js";
 
-
-export async function loadReceipts() {
+export const receiptControl = {
+    async load() {
     const table = document.getElementById('receiptTable');
+    table.innerHTML = ""
     const res = await fetch(RECEIPT_API)
     const receipts = await res.json();
     receipts.forEach(receipt => {
@@ -33,3 +34,5 @@ export async function loadReceipts() {
         table.appendChild(row);
     });
 }
+}
+

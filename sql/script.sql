@@ -15,24 +15,27 @@ CREATE TABLE sellers(
 	seller_name VARCHAR(75) NOT NULL UNIQUE
 );
 
-CREATE TABLE receipts(
-	idreceipt INT PRIMARY KEY AUTO_INCREMENT,
-	date DATE NOT NULL,
-	total DECIMAL(10,2),
-	idseller INT NOT NULL,
-	idclient INT NOT NULL,
-	FOREIGN KEY (idseller) REFERENCES sellers(idseller),
-	FOREIGN KEY (idclient) REFERENCES clients(idclient)	
+CREATE TABLE receipts (
+    idreceipt INT PRIMARY KEY AUTO_INCREMENT,
+    date DATE NOT NULL,
+    total DECIMAL(10,2),
+    idseller INT NULL,
+    idclient INT NULL,
+    FOREIGN KEY (idseller) REFERENCES sellers(idseller)
+        ON DELETE SET NULL,
+    FOREIGN KEY (idclient) REFERENCES clients(idclient)
+        ON DELETE SET NULL
 );
 
-
-CREATE TABLE purchases_details(
-	id_purchase INT PRIMARY KEY AUTO_INCREMENT,
-	quantity INT NOT NULL,
-	idproduct INT NOT NULL,
-	idreceipt INT NOT NULL,
-	FOREIGN KEY (idproduct) REFERENCES products(idproduct),
-	FOREIGN KEY (idreceipt) REFERENCES receipts(idreceipt)
+CREATE TABLE purchases_details (
+    id_purchase INT PRIMARY KEY AUTO_INCREMENT,
+    quantity INT NOT NULL,
+    idproduct INT NULL,
+    idreceipt INT NULL,
+    FOREIGN KEY (idproduct) REFERENCES products(idproduct)
+        ON DELETE SET NULL,
+    FOREIGN KEY (idreceipt) REFERENCES receipts(idreceipt)
+        ON DELETE SET NULL
 );
 
 CREATE TABLE users(

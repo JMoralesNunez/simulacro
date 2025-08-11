@@ -1,0 +1,26 @@
+export const showTable = {
+    client(){
+        document.getElementById('clientCard').classList.remove('d-none')
+        document.getElementById('productCard').classList.add('d-none')
+        document.getElementById('sellersCard').classList.add('d-none')
+        document.getElementById('receiptCard').classList.add('d-none')
+    },
+    product(){
+        document.getElementById('productCard').classList.remove('d-none')
+        document.getElementById('clientCard').classList.add('d-none')
+        document.getElementById('sellersCard').classList.add('d-none')
+        document.getElementById('receiptCard').classList.add('d-none')
+    },
+    seller(){
+        document.getElementById('sellersCard').classList.remove('d-none')
+        document.getElementById('productCard').classList.add('d-none')
+        document.getElementById('clientCard').classList.add('d-none')
+        document.getElementById('receiptCard').classList.add('d-none')
+    },
+    receipt(){
+        document.getElementById('receiptCard').classList.remove('d-none')
+        document.getElementById('sellersCard').classList.add('d-none')
+        document.getElementById('productCard').classList.add('d-none')
+        document.getElementById('clientCard').classList.add('d-none')
+    }
+}

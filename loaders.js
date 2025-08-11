@@ -18,13 +18,12 @@ async function cargarClientes() {
                 for (const cliente of clientes) {
                     const query = `
                     INSERT INTO dbventas.clients
-                    (idclient, phone, school, client_name)
-                    VALUES(?, ?, ?, ?);
+                    (phone, school, client_name)
+                    VALUES(?, ?, ?);
                 `;
                     const values = [
-                        parseInt(cliente.id),
-                        cliente.colegio,
                         cliente.telefono,
+                        cliente.colegio,
                         cliente.nombre
                     ];
                     await db.query(query, values);

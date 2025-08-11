@@ -26,19 +26,19 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="list-group">
-                            <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                            <a href="#" id="clientSection" class="list-group-item list-group-item-action">
                                 Clientes
                             </a>
-                            <a href="#" class="list-group-item list-group-item-action">Productos</a>
-                            <a href="#" class="list-group-item list-group-item-action">Vendedores</a>
-                            <a href="#" class="list-group-item list-group-item-action">Facturas</a>
+                            <a href="#" id="productSection" class="list-group-item list-group-item-action">Productos</a>
+                            <a href="#" id="sellerSection" class="list-group-item list-group-item-action">Vendedores</a>
+                            <a href="#" id="receiptSection" class="list-group-item list-group-item-action">Facturas</a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-md-9 mt-4">
                 <div class="card">
-                    <div class="card-body d-block" id="clientCard">
+                    <div class="card-body" id="clientCard">
                         <button type="button" id="addClientBtn" class="btn btn-primary">Agregar nuevo cliente</button>
                         <div class="table-responsive mt-3">
                             <table class="table table-hover table-border">
@@ -56,8 +56,8 @@
                             </table>
                         </div>
                     </div>
-                    <div class="card-body d-block" id="productCard">
-                        <a href="" class="btn btn-primary">Agregar nuevo producto</a>
+                    <div class="card-body d-none" id="productCard">
+                        <a href="#" id="addProductBtn" class="btn btn-primary">Agregar nuevo producto</a>
                         <div class="table-responsive mt-3">
                             <table class="table table-hover table-border">
                                 <thead>
@@ -72,8 +72,8 @@
                             </table>
                         </div>
                     </div>
-                    <div class="card-body d-block" id="sellersCard">
-                        <a href="" class="btn btn-primary">Agregar nuevo vendedor</a>
+                    <div class="card-body d-none" id="sellersCard">
+                        <a href="#" id="addSellerBtn" class="btn btn-primary">Agregar nuevo vendedor</a>
                         <div class="table-responsive mt-3">
                             <table class="table table-hover table-border">
                                 <thead>
@@ -88,8 +88,8 @@
                             </table>
                         </div>
                     </div>
-                    <div class="card-body d-block" id="receiptCard">
-                        <a href="" class="btn btn-primary">Agregar nueva factura</a>
+                    <div class="card-body d-none" id="receiptCard">
+                        <a href="" id="addReceiptBtn" class="btn btn-primary">Agregar nueva factura</a>
                         <div class="table-responsive mt-3">
                             <table class="table table-hover table-border">
                                 <thead>
@@ -133,12 +133,12 @@
                 </div>
                 <div class="actions col-12 text-center mt-3">
                     <button type="button" id="closeClientDialog" class="btn btn-danger">Cancelar</button>
-                    <button type="submit" id="saveClientChanges" class="btn btn-primary">Guardar</button>
+                    <button type="button" id="saveClientChanges" class="btn btn-primary">Guardar</button>
                 </div>
             </form>
         </div>
     </dialog>
-    <div id="productModal" class="container w-50 rounded-3 border-0">
+    <dialog id="productModal" class="container w-50 rounded-3 border-0">
         <div class="container mt-5">
             <h1 id="productTitle" class="text-center fs-1 fw-bold"></h1>
         </div>
@@ -152,12 +152,12 @@
                 </div>
                 <div class="actions col-12 text-center mt-3">
                     <button type="button" id="closeProductDialog" class="btn btn-danger">Cancelar</button>
-                    <button type="submit" id="saveProductChanges" class="btn btn-primary">Guardar</button>
+                    <button type="button" id="saveProductChanges" class="btn btn-primary">Guardar</button>
                 </div>
             </form>
         </div>
-    </div>
-    <div id="sellerModal" class="container w-50 rounded-3 border-0">
+    </dialog>
+    <dialog id="sellerModal" class="container w-50 rounded-3 border-0">
         <div class="container mt-5">
             <h1 id="sellerTitle" class="text-center fs-1 fw-bold"></h1>
         </div>
@@ -171,12 +171,12 @@
                 </div>
                 <div class="actions col-12 text-center mt-3">
                     <button type="button" id="closeSellerDialog" class="btn btn-danger">Cancelar</button>
-                    <button type="submit" id="saveSellerChanges" class="btn btn-primary">Guardar</button>
+                    <button type="button" id="saveSellerChanges" class="btn btn-primary">Guardar</button>
                 </div>
             </form>
         </div>
-    </div>
-    <div id="receiptModal" class="container w-50 rounded-3 border-0">
+    </dialog>
+    <dialog id="receiptModal" class="container w-50 rounded-3 border-0">
         <div class="container mt-5">
             <h1 id="receiptTitle" class="text-center fs-1 fw-bold"></h1>
         </div>
@@ -206,7 +206,7 @@
                 </div>
             </form>
         </div>
-    </div>
+    </dialog>
 </body>
 
 </html>
