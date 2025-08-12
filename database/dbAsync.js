@@ -1,11 +1,11 @@
 const mysql = require('mysql2/promise');
 
 const dbAsync = mysql.createPool({
-    host: 'localhost',
+    host: '168.119.183.3',
     port: 3307,
     user: 'root',
-    password: 'Jmn94089#',
-    database: 'dbventas'
+    password: 'g0tIFJEQsKHm5$34Pxu1',
+    database: 'jhonatan'
 });
 
 module.exports = dbAsync;

@@ -17,7 +17,7 @@ async function cargarClientes() {
             .on('end', async () => {
                 for (const cliente of clientes) {
                     const query = `
-                    INSERT INTO dbventas.clients
+                    INSERT INTO clients
                     (phone, school, client_name)
                     VALUES(?, ?, ?);
                 `;
@@ -51,7 +51,7 @@ async function cargarProductos() {
             .on('end', async () => {
                 for (const producto of productos) {
                     const query = `
-                    INSERT INTO dbventas.products
+                    INSERT INTO products
                     (idproduct, product_name)
                     VALUES(?, ?);
                 `;
@@ -84,7 +84,7 @@ async function cargarVendedores() {
             .on('end', async () => {
                 for (const vendedor of vendedores) {
                     const query = `
-                    INSERT INTO dbventas.sellers
+                    INSERT INTO sellers
                     (idseller, seller_name)
                     VALUES(?, ?);
                 `;
@@ -117,7 +117,7 @@ async function cargarFacturas() {
             .on('end', async () => {
                 for (const factura of facturas) {
                     const query = `
-                    INSERT INTO dbventas.receipts
+                    INSERT INTO receipts
                     (idreceipt, date, total, idseller, idclient)
                     VALUES(?, ?, ?, ?, ?);
                 `;
@@ -152,7 +152,7 @@ async function cargarCompras() {
             .on('end', async () => {
                 for (const compra of compras) {
                     const query = `
-                    INSERT INTO dbventas.purchases_details
+                    INSERT INTO purchases_details
                     (id_purchase, quantity, idproduct, idreceipt)
                     VALUES(?, ?, ?, ?);
                 `;

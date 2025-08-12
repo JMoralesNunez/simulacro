@@ -9,7 +9,6 @@ export const receiptControl = {
         const total = document.getElementById("receiptTotal").value;
         const sellerid = document.getElementById("receiptSeller").value;
         const clientid = document.getElementById("receiptClient").value;
-
         if (getReceiptId()) {
             //Edit mode
             try {
@@ -21,8 +20,8 @@ export const receiptControl = {
                     "body": JSON.stringify({
                         "date": date,
                         "total": total,
-                        "sellerid": sellerid,
-                        "clientid": clientid
+                        "idseller": sellerid,
+                        "idclient": clientid
                     })
                 });
                 const data = await res.json();
@@ -41,8 +40,8 @@ export const receiptControl = {
                     "body": JSON.stringify({
                         "date": date,
                         "total": total,
-                        "sellerid": sellerid,
-                        "clientid": clientid
+                        "idseller": sellerid,
+                        "idclient": clientid
                     })
                 });
                 const data = await res.json();
@@ -80,7 +79,7 @@ export const receiptControl = {
             deleteBtn.className = "btn btn-sm btn-danger";
             deleteBtn.textContent = "Eliminar";
             deleteBtn.addEventListener("click", () => {
-                erase(receipt.idreceipt);
+                this.erase(receipt.idreceipt);
             });
             actionsCell.append(editBtn, deleteBtn);
             table.appendChild(row);

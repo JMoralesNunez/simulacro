@@ -69,6 +69,9 @@ document.getElementById('addReceiptBtn').addEventListener('click', (e)=>{
 document.getElementById('closeReceiptDialog').addEventListener('click', ()=>{
     receiptModals.close()
 })
+document.getElementById('saveReceiptChanges').addEventListener('click', ()=>{
+    receiptControl.save()
+})
 
 
 

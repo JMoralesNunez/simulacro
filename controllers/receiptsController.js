@@ -25,7 +25,8 @@ class ReceiptController {
     getDetails(req, res) {
         const { id } = req.params;
         try {
-            db.query(`SELECT * FROM receipts WHERE idreceipt = ?;`,
+            db.query(`SELECT idreceipt, DATE_FORMAT(receipts.date, '%Y-%m-%d') AS date, total, idseller, idclient from receipts
+                    WHERE idreceipt = ?;`,
                 [id],
                 (err, response) => {
                     if (err) {
@@ -45,14 +46,14 @@ class ReceiptController {
             db.query(`INSERT INTO receipts
                     (date, total, idseller, idclient)
                     VALUES(?, ?, ?, ?);`,
-                [date, total, idseller, idclient], 
-            (err, rows)=>{
-                if (err) {
-                    throw err.message
-                } else {
-                    res.json({ message: 'Factura agregada correctamente', data: rows });
-                }
-            })
+                [date, total, idseller, idclient],
+                (err, rows) => {
+                    if (err) {
+                        throw err.message
+                    } else {
+                        res.json({ message: 'Factura agregada correctamente', data: rows });
+                    }
+                })
         } catch (error) {
             throw error
         }
@@ -67,14 +68,14 @@ class ReceiptController {
                         idseller=?,
                         idclient=?
                         WHERE idreceipt=?;`,
-                        [date, total, idseller, idclient, id],
-                        (err, data)=>{
-                        if (err) {
-                            throw err
-                        } else {
-                            res.json(data)
-                        }
-                    })
+                [date, total, idseller, idclient, id],
+                (err, data) => {
+                    if (err) {
+                        throw err
+                    } else {
+                        res.json(data)
+                    }
+                })
         } catch (error) {
             throw error
         }
@@ -83,14 +84,14 @@ class ReceiptController {
         const { id } = req.params;
         try {
             db.query(`DELETE FROM receipts WHERE idreceipt=?;`,
-                        [id],
-                        (err, data)=>{
-                        if (err) {
-                            throw err
-                        } else {
-                            res.json(data)
-                        }
-                    })
+                [id],
+                (err, data) => {
+                    if (err) {
+                        throw err
+                    } else {
+                        res.json(data)
+                    }
+                })
         } catch (error) {
             throw error
         }
