@@ -8,7 +8,12 @@ const receiptRoutes = require('./routes/receiptRoutes.js');
 const purchaseRoutes = require('./routes/purchaseRoutes');
 const userRoutes = require('./routes/userRoutes.js');
 
+// const { cargarClientes } = require('./loaders.js');
+// const { cargarProductos } = require('./loaders.js');
+// const { cargarVendedores } = require('./loaders.js');
+// const { cargarFacturas } = require('./loaders.js');
 // const { cargarCompras } = require('./loaders.js');
+
 
 
 app.use(express.json());
@@ -25,7 +30,11 @@ app.use('/facturas', receiptRoutes);
 app.use('/compras', purchaseRoutes);
 app.use('/usuarios', userRoutes);
 
-
+// cargarClientes()
+// cargarProductos()
+// cargarVendedores()
+// cargarFacturas()
+// cargarCompras()
 
 
     app.listen(5000, () => {
